@@ -9,6 +9,7 @@ __pycache__/
 data/*
 !data/sample_documents/
 !data/sample_documents/README.md
+data/processed/
 
 *.faiss
 *.pkl
