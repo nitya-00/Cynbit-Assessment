@@ -1,0 +1,13 @@
+jupyter
+ipykernel
+pymupdf
+pandas
+numpy
+python-dotenv
+pydantic
+pytest
+faiss-cpu
+ollama
+fastapi
+uvicorn[standard]
+python-multipart

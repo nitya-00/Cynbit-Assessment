@@ -10,6 +10,10 @@ data/*
 !data/sample_documents/
 !data/sample_documents/README.md
 data/processed/
+data/extractions/
+app/storage/uploads/
+app/storage/vector_store/
+app/storage/documents.json
 
 *.faiss
 *.pkl
