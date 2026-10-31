@@ -1,8 +1,8 @@
-# Technical Approach Report — Local Document Reader
+# Technical Approach Report - Local Document Reader
 
 ## Overview
 
-Local Document Reader is a modular local-Python document-retrieval MVP. It ingests text-based PDFs and creates a separate semantic index per uploaded document.
+Local Document Reader is a simple local document reader. It reads text-based PDFs and creates a separate search index for every uploaded document.
 
 ## Implemented pipeline
 
@@ -24,6 +24,28 @@ Local Document Reader is a modular local-Python document-retrieval MVP. It inges
 | API | FastAPI |
 | Interface | Streamlit |
 | Validation | Pydantic and Pytest |
+
+## Why I selected these tools
+
+### Ollama
+
+I selected Ollama because I was comfortable working with it locally. It lets me run models on my Mac instead of depending on a paid cloud API. This was useful for a student project because it keeps the setup simple, avoids API-key management, and gives better control over where document text is processed. Ollama is free to use locally; the models and their licences should still be checked individually before commercial use.
+
+### Nomic Embed Text
+
+I used `nomic-embed-text` because it is designed for embeddings rather than writing answers. It converts both document chunks and user questions into vectors. I use `search_document:` for document text and `search_query:` for questions, so both are prepared for retrieval in the same vector space.
+
+### FAISS
+
+I used FAISS because it is a fast and simple vector-search library. After normalizing the vectors, FAISS can compare a question with the document chunks using cosine similarity. It is a good fit for this local MVP because it does not require a separate database server.
+
+### RAG
+
+RAG means Retrieval-Augmented Generation. I chose this approach because a language model should not try to answer a document question from memory. First, the system retrieves the most relevant chunks from the uploaded PDF. Then a local LLM can use only those chunks as context. This makes the system more useful for private documents and allows it to show source page references. RAG reduces hallucinations but does not remove them completely.
+
+### FastAPI and Streamlit
+
+I used FastAPI to separate the backend processing from the user interface. It gives clear endpoints for upload, processing, and retrieval. I used Streamlit because it is quick to build for a demonstration and lets a user upload a PDF and see citations without building a full frontend from scratch.
 
 ## Testing and reliability
 

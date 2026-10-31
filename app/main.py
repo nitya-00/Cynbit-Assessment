@@ -4,10 +4,10 @@ from app.services.document_service import upload_document, process_document
 from app.services.document_registry import get_document, list_documents
 from app.retrieval.vector_store import search_vector_store
 
-app=FastAPI(title="Local Document Reader",version="1.0.0")
+app=FastAPI(title="Document Reader",version="1.0.0")
 def public(doc): return {k:v for k,v in doc.items() if k not in {"file_path","error"}}
 @app.get("/")
-def root(): return {"message":"Welcome to Local Document Reader","status":"running"}
+def root(): return {"message":"Welcome to Document Reader","status":"running"}
 @app.get("/health")
 def health(): return {"status":"healthy"}
 @app.post("/api/documents/upload")

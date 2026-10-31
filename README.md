@@ -1,6 +1,6 @@
-# Local Document Reader
+# Document Reader
 
-Local Document Reader is a Python proof of concept for ingesting PDFs, building semantic-search indexes, and retrieving source passages with page-level metadata. It runs locally with Ollama, Nomic Embed Text, FAISS, FastAPI, and Streamlit.
+Document Reader is a Python proof of concept for ingesting PDFs, building semantic-search indexes, and retrieving source passages with page-level metadata. It runs locally with Ollama, Nomic Embed Text, FAISS, FastAPI, and Streamlit.
 
 ## Features
 

@@ -1,10 +1,10 @@
-"""Local Document Reader dashboard. Start the FastAPI API before this app."""
+"""Document Reader dashboard. Start the FastAPI API before this app."""
 import os
 import requests
 import streamlit as st
 
 API_BASE_URL = os.getenv("DOCUMENT_READER_API_URL", "http://127.0.0.1:8000")
-st.set_page_config(page_title="Local Document Reader", page_icon="📚", layout="wide")
+st.set_page_config(page_title="Document Reader", page_icon="📚", layout="wide")
 
 def api_request(method, endpoint, **kwargs):
     try:
@@ -15,7 +15,7 @@ def api_request(method, endpoint, **kwargs):
     except requests.RequestException as error:
         return None, f"Cannot reach backend at {API_BASE_URL}: {error}"
 
-st.title("📚 Local Document Reader")
+st.title("📚 Document Reader")
 health, error = api_request("GET", "/health")
 if error:
     st.error(error)

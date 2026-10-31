@@ -1,10 +1,10 @@
-# AI Opportunity Report — Local Document Reader
+# AI Opportunity Report - Local Document Reader
 
-## Executive summary
+## Simple summary
 
-Software and IT-services work relies on requirement specifications, proposals, technical briefs, and project reports. Important details are often spread across pages and expressed using inconsistent terminology. Local Document Reader explores a document-intelligence workflow that makes these documents searchable by meaning and returns traceable source passages.
+Many companies receive long PDF files such as client requirements, proposals, and technical documents. Finding one small detail can take time. Local Document Reader helps a user upload a PDF, search it using normal questions, and see the page where the information came from.
 
-This is an industry opportunity analysis, not a claim about any specific company's confirmed internal workflow or quantified savings.
+This is a student project and proof of concept. It does not claim that any specific company has this exact problem or that the system is ready for production.
 
 ## Opportunity
 
