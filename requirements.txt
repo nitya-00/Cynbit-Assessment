@@ -11,3 +11,5 @@ ollama
 fastapi
 uvicorn[standard]
 python-multipart
+streamlit
+requests
