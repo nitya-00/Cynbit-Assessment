@@ -12,7 +12,10 @@ def root(): return {"message":"Welcome to Document Reader","status":"running"}
 def health(): return {"status":"healthy"}
 @app.post("/api/documents/upload")
 async def upload(file:UploadFile=File(...)):
-    try: return {"message":"Document uploaded successfully.","document":public(upload_document(await file.read(),file.filename or ""))}
+    try:
+        document = upload_document(await file.read(), file.filename or "")
+        document = process_document(document["document_id"])
+        return {"message":"Document uploaded and processed successfully.","document":public(document)}
     except ValueError as e: raise HTTPException(400,str(e))
 @app.get("/api/documents")
 def documents(): return [public(d) for d in list_documents()]
