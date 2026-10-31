@@ -1,4 +1,4 @@
-"""Text normalization, chunking, and validation for DocuMind AI."""
+"""Text normalization, chunking, and validation for Local Document Reader."""
 
 from __future__ import annotations
 

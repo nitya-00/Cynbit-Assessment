@@ -1,4 +1,4 @@
-"""Page-level PDF ingestion utilities for DocuMind AI."""
+"""Page-level PDF ingestion utilities for Local Document Reader."""
 
 from __future__ import annotations
 
