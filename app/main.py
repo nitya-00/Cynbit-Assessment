@@ -2,7 +2,7 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from app.schemas.document import ChatRequest
 from app.services.document_service import upload_document, process_document
 from app.services.document_registry import get_document, list_documents
-from app.retrieval.vector_store import search_vector_store
+from app.llm.rag_chain import answer_document_question
 
 app=FastAPI(title="Document Reader",version="1.0.0")
 def public(doc): return {k:v for k,v in doc.items() if k not in {"file_path","error"}}
@@ -24,6 +24,5 @@ def process(document_id:str):
 @app.post("/api/chat")
 def chat(request:ChatRequest):
     try:
-        results=search_vector_store(request.document_id,request.question,request.top_k)
-        return {"answer":"Generation model integration is available in Notebook 03; retrieved evidence returned below.","insufficient_information":not bool(results),"citations":[{"chunk_id":x["chunk_id"],"source":x["source"],"page_number":x["page_number"]} for x in results],"retrieved_chunks":results}
+        return answer_document_question(request.document_id,request.question,request.top_k)
     except FileNotFoundError: raise HTTPException(409,"Document has not been processed.")
